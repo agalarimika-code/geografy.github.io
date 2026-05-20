@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Специализация стран</title>
+    <style>
+        :root {
+            --bg: #f3f6fb;
+            --surface: #ffffff;
+            --text: #1f2a3a;
+            --muted: #5f6d82;
+            --border: rgba(79, 124, 255, 0.18);
+            --shadow: 0 18px 45px rgba(63, 81, 133, 0.12);
+            --accent: #4f7cff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            
+            font-family: "Inter", system-ui, sans-serif;
+            background: radial-gradient(circle at top left, rgba(79, 124, 255, 0.14), transparent 28%),
+                        linear-gradient(180deg, #f7f9ff 0%, var(--bg) 100%);
+            color: var(--text);
+            min-height: 200vh
+        }
+
+        header {
+            text-align: center;
+            
+            padding: 16px 20px 16px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            letter-spacing: -0.03em;
+            
+            margin-top: 0;
+    padding-top: 0;
+        }
+
+        header p {
+            margin: 16px auto 0;
+            max-width: 720px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: min(1140px, calc(100% - 32px));
+            margin: 0 auto 40px;
+            animation: liftIn 0.8s ease-out both;
+            min-height: 120vh;
+            margin-top: 167px;
+        }
+
+        @keyframes liftIn {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            padding: 26px 22px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(63, 81, 133, 0.18);
+        }
+
+        .card h2 {
+            margin: 0 0 12px;
+            font-size: 1.2rem;
+            color: #17233c;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+            font-size: 0.97rem;
+        }
+
+        .tooltip {
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 14px);
+            transform: translateX(-50%) translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            width: min(320px, 90%);
+            background: #ffffff;
+            border: 1px solid rgba(79, 124, 255, 0.14);
+            border-radius: 18px;
+            box-shadow: 0 22px 52px rgba(63, 81, 133, 0.16);
+            padding: 18px 16px;
+            color: #2f3e57;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+            z-index: 10;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: #ffffff;
+        }
+
+        .card:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .tooltip strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent);
+            font-size: 0.98rem;
+        }
+
+        .tooltip small {
+            display: block;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18px 20px 36px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Специализация стран</h1>
+        <p>Сделано Агалари Микаилом.</p>
+    </header>
+
+    <main class="container">
+        <section class="grid">
+            <article class="card">
+                <h2>США</h2>
+                <p>Высокие технологии, IT, финансы, киноиндустрия, фармацевтика, оборонка, агроэкспорт.</p>
+                <div class="tooltip">
+                    <strong>США</strong>
+                    История: от колоний Великобритании до мировой супердержавы XIX–XX веков.
+                    Политика: федеральная президентская республика с двухпартийной системой.
+                    Правление: демократические выборы президента и конгресса, разделение властей.
+                </div>
+            </article>
+            <article class="card">
+                <h2>Канада</h2>
+                <p>Природные ресурсы (нефть, газ, лес, металлы), горнодобыча, энергетика, сельское хозяйство, услуги.</p>
+                <div class="tooltip">
+                    <strong>Канада</strong>
+                    История: британская и французская колонии, конфедерация с 1867 года.
+                    Политика: парламентарная монархия, глава государства — король, фактический лидер — премьер-министр.
+                    Правление: федерация из десяти провинций и трёх территорий.
+                </div>
+            </article>
+            <article class="card">
+                <h2>Израиль</h2>
+                <p>Высокие технологии, кибербезопасность, медицина и биотехнологии, сельхозтехнологии, оборонка.</p>
+                <div class="tooltip">
+                    <strong>Израиль</strong>
+                    История: провозглашён в 1948 году, с тех пор в центре ближневосточной политики.
+                    Политика: парламентская демократия с однопалатным кнессетом.
+                    Правление: премьер-министр возглавляет правительство, действует система коалиций.
+                </div>
+            </article>
+            <article class="card">
+                <h2>Индонезия</h2>
+                <p>Пальмовое масло, добыча угля и никеля, текстиль, морепродукты, туризм.</p>
+                <div class="tooltip">
+                    <strong>Индонезия</strong>
+                    История: независимость от Нидерландов в 1945 году, формирование нации на архипелаге.
+                    Политика: президентская республика с сильным центром.
+                    Правление: президент избирается на пятилетний срок, многонациональное общество.
+                </div>
+            </article>
+            <article class="card">
+                <h2>Россия</h2>
+                <p>Энергетика (нефть и газ), металлургия, оборонная промышленность, авиация, сельское хозяйство.</p>
+                <div class="tooltip">
+                    <strong>Россия</strong>
+                    История: от монархии через СССР к современной федерации.
+                    Политика: президентско-парламентская система с сильной исполнительной властью.
+                    Правление: президент и правительство управляют страной, федеральный устроенный порядок.
+                </div>
+            </article>
+            <article class="card">
+                <h2>Монако</h2>
+                <p>Банковские и финансовые услуги, роскошный туризм, казино, яхтинг, дорогая недвижимость.</p>
+                <div class="tooltip">
+                    <strong>Монако</strong>
+                    История: княжество с долгой династией Гримальди, независимое с XIX века.
+                    Политика: конституционная монархия.
+                    Правление: князь — глава государства, работает избранный совет государства.
+                </div>
+            </article>
+            <article class="card">
+                <h2>ЮАР</h2>
+                <p>Добыча алмазов, золота и платины, металлургия, сельское хозяйство, сафари-туризм.</p>
+                <div class="tooltip">
+                    <strong>ЮАР</strong>
+                    История: преодолела апартеид в 1994 году, перешла к многопартийной демократии.
+                    Политика: парламентская республика с президентом во главе.
+                    Правление: Конституция защищает права, активно развивается туристическая отрасль.
+                </div>
+            </article>
+            <article class="card">
+                <h2>Бразилия</h2>
+                <p>Сельское хозяйство (соя, кофе, сахар), авиационная промышленность, добыча железной руды, биотехнологии.</p>
+                <div class="tooltip">
+                    <strong>Бразилия</strong>
+                    История: от португальской колонии к федеративной республике.
+                    Политика: президентская система, многопартийная демократия.
+                    Правление: президент является главой государства и правительства.
+                </div>
+            </article>
+            <article class="card">
+                <h2>Куба</h2>
+                <p>Медицина и биотехнологии, туризм, сахарное производство, фармацевтика.</p>
+                <div class="tooltip">
+                    <strong>Куба</strong>
+                    История: революция 1959 года привела к социалистической системе.
+                    Политика: однопартийная система, КПК контролирует власть.
+                    Правление: государственные органы и руководство партии формируют управление.
+                </div>
+            </article>
+            <article class="card">
+                <h2>ОАЭ</h2>
+                <p>Нефть и газ, туризм, гостиничный бизнес, авиация, недвижимость, логистика и финансы.</p>
+                <div class="tooltip">
+                    <strong>ОАЭ</strong>
+                    История: объединение эмиратов в 1971 году.
+                    Политика: федерация семи эмиратов, каждый управляется своим правителем.
+                    Правление: президент выбирается из числа эмиратских правителей, экономика ориентирована на нефть и услуги.
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>Сайт-справочник специализаций стран</footer>
+</body>
+</html>
